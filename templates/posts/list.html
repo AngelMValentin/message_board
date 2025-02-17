@@ -4,12 +4,57 @@
 {% block title %}Posts{% endblock title %}
 
 {% block content %}
-<h1>Posts</h1>
+<style>
+  .card {
+    background-color: #20539579;
+    border-radius: 20px;
+    margin: 20px;
+
+  }
+  .white {
+    color: white !important;
+  }
+  .typewriter {
+    display: flex;
+    justify-content: center;
+  }
+  .typewriter h1 {
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    margin-inline: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    /* keeps everything on a single line ^ */
+    border-right: 1px solid;
+    /* cursor */
+    animation: typing 3s steps(42) forwards,
+    blink 1s step-end infinite;
+    /* steps = number of characters */
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+</style>
+<div class="typewriter">
+  <div>
+    <h1 class="text-body-secondary text-center">Just a Posts Page with a <em>cool</em> animation</h1>
+  </div>
+</div>
 {% for post in post_list %}
-<div class="card">
+<div class="white card">
     <div class="card-body">
       <h5 class="card-title">{{ post.title }}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">{{ post.subtitle }}</h6>
+      <h6 class=" card-subtitle mb-2 text-body-secondary">{{ post.subtitle }}</h6>
       <p class="card-text">{{ post.body | truncatechars:64 }}</p>
       <a href="{% url 'detail' post.id %}" class="">Continue reading...</a>
     </div>

@@ -1,8 +1,56 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home {% endblock title %}
 
 {% block content %}
-<h1 class="text-center">Did this actually work for the home page? </h1>
-<p><small>I think it did </small></p>
+<style>
+    .heading {
+        font-size: 2.5rem;
+    }
+    .home {
+        font-family: sans-serif;
+        color: #FAF9F6;
+    }
+    p {
+        margin-top: 40px;
+    }
+
+    .hero {
+        width: 100%;
+        height: 20rem;
+        display:flex;
+    }
+    .subheading {
+        font-weight: bold;
+    }
+    .hero-left {
+        flex: 8;
+        flex-wrap: wrap;
+        margin: auto auto;
+    }
+    .hero-right {
+        flex: 4;
+        background-image: url("{% static 'img/hero2.png' %}");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center right;
+        margin-right: 40px;
+    }
+    .para {
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+</style>
+<div class="home">
+    <div class="hero">
+        <div class="hero-left">
+            <h1 class="heading text-center">Threads, Posts, and Python:</h1>
+            <p class="subheading text-center">Crafting the Perfect Space for Thought</p>
+            <p class=" para text-center"><small>Django makes building web apps a lot smoother by handling the boring stuff like authentication and security for you. It’s a solid choice if you want to focus more on your app’s features and less on reinventing the wheel.</small></p>
+        </div>
+        <div class="hero-right">
+        </div>
+    </div>
+</div>
 {% endblock content %}
